@@ -1,0 +1,319 @@
+/* dcoder_op - Dhruv Arora */
+@import url("https://fonts.googleapis.com/css?family=Fascinate+Inline&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: black;
+  font-family: "Kalam", "Alegreya Sans SC", "Roboto";
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+
+  position: relative;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #e00876, #ef4e22);
+  border-radius: 3px;
+}
+audio::-webkit-media-controls-current-time-display {
+  color: #fff;
+  font-size: 35px;
+  font-weight: bolder;
+  padding-left: 10px;
+}
+audio::-webkit-media-controls-time-remaining-display {
+  /* color: #ef4e22; */
+  font-weight: bolder;
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+audio::-webkit-media-controls-timeline {
+  background: #e0d208;
+  border-radius: 30px;
+  padding: 2px;
+}
+
+audio::-webkit-media-controls-panel {
+  background: radial-gradient(
+    circle,
+    rgba(63, 94, 251, 1) 0%,
+    rgba(252, 70, 107, 1) 100%
+  );
+
+  border-radius: 50px;
+  padding: 2px;
+}
+
+audio::-webkit-media-controls-play-button {
+  padding-right: 20px;
+}
+
+#container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: black;
+  width: 100%;
+  height: 100%;
+}
+#canvas1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: black;
+  width: 100%;
+  height: 100%;
+}
+
+#audio1 {
+  width: 60%;
+  display: block;
+  margin: 50px auto;
+}
+
+[type="file"] {
+  /* overflow: hidden; */
+  width: 0;
+}
+
+[type="file"] + label {
+  position: fixed;
+  top: 150px;
+  left: 10px;
+  background: #fc170f;
+  border: none;
+  font-weight: bolder;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Rubik", sans-serif;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 1rem 25px;
+  transition: all 0.3s;
+  vertical-align: middle;
+}
+[type="file"] + label:active {
+  background-color: #d30d0d;
+}
+[type="file"] + label.btn-1 {
+  background-color: #f75959;
+  box-shadow: 0 6px #f52828;
+  font-size: 20px;
+  font-weight: bolder;
+  transition: none;
+}
+[type="file"] + label.btn-1:active {
+  box-shadow: 0 4px #fc170f;
+  top: 155px;
+}
+
+.choose {
+  position: absolute;
+  top: 15%;
+  right: 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: right;
+}
+
+#file-display {
+  position: absolute;
+  color: #fff;
+  font-size: 25px;
+  top: 90%;
+  left: 5%;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: top;
+  justify-content: left;
+}
+
+#typedtext {
+  color: lime;
+  font-family: "Courier";
+  font-size: 30px;
+  font-weight: bolder;
+  text-align: left;
+  position: absolute;
+  top: 90%;
+  left: 5%;
+}
+
+.treat-button {
+  font-size: 1.7em;
+  font-family: "Alegreya Sans SC";
+  line-height: 1em;
+  height: 3em;
+  width: 6em;
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 0 #217fdd inset, 0.3em 0.2em 0 0 #0f4881;
+  border: 0.2em solid #217fdd;
+  padding: 0.8em;
+  text-align: center;
+  transition: 0.25s box-shadow, 0.25s transform;
+  margin: 1em;
+}
+
+.treat-button:active {
+  box-shadow: 0 4em 0 0 #217fdd inset, 0em 0em 0 0 #0f4881;
+  transform: translate(0.3em, 0.2em);
+  color: #fff;
+}
+
+#one {
+  box-shadow: 0 0 0 0 #f72585 inset, 0.3em 0.2em 0 0 #860b42;
+  border: 0.2em solid #f72585;
+}
+#one:active {
+  box-shadow: 0 4em 0 0 #f72585 inset, 0em 0em 0 0 #860b42;
+  transform: translate(0.3em, 0.2em);
+}
+
+#two {
+  box-shadow: 0 0 0 0 #b5179e inset, 0.3em 0.2em 0 0 #6a135d;
+  border: 0.2em solid #b5179e;
+}
+#two:active {
+  box-shadow: 0 4em 0 0 #b5179e inset, 0em 0em 0 0 #6a135d;
+  transform: translate(0.3em, 0.2em);
+}
+
+#three {
+  box-shadow: 0 0 0 0 #7209b7 inset, 0.3em 0.2em 0 0 #3a0c5f;
+  border: 0.2em solid #7209b7;
+}
+#three:active {
+  box-shadow: 0 4em 0 0 #7209b7 inset, 0em 0em 0 0 #3a0c5f;
+  transform: translate(0.3em, 0.2em);
+}
+
+#four {
+  box-shadow: 0 0 0 0 #560bad inset, 0.3em 0.2em 0 0 #2a0a5b;
+  border: 0.2em solid #560bad;
+}
+#four:active {
+  box-shadow: 0 4em 0 0 #560bad inset, 0em 0em 0 0 #2a0a5b;
+  transform: translate(0.3em, 0.2em);
+}
+
+#five {
+  box-shadow: 0 0 0 0 #3a0ca3 inset, 0.3em 0.2em 0 0 #1f0a4b;
+  border: 0.2em solid #3a0ca3;
+}
+#five:active {
+  box-shadow: 0 4em 0 0 #3a0ca3 inset, 0em 0em 0 0 #1f0a4b;
+  transform: translate(0.3em, 0.2em);
+}
+
+#six {
+  box-shadow: 0 0 0 0 #4361ee inset, 0.3em 0.2em 0 0 #1f1e64;
+  border: 0.2em solid #4361ee;
+}
+#six:active {
+  box-shadow: 0 4em 0 0 #4361ee inset, 0em 0em 0 0 #1f1e64;
+  transform: translate(0.3em, 0.2em);
+}
+
+#seven {
+  box-shadow: 0 0 0 0 #4895ef inset, 0.3em 0.2em 0 0 #1f3f64;
+  border: 0.2em solid #4895ef;
+}
+#seven:active {
+  box-shadow: 0 4em 0 0 #4895ef inset, 0em 0em 0 0 #1f3f64;
+  transform: translate(0.3em, 0.2em);
+}
+
+#eight {
+  box-shadow: 0 0 0 0 #4cc9f0 inset, 0.3em 0.2em 0 0 #1f5f64;
+  border: 0.2em solid #4cc9f0;
+}
+#eight:active {
+  box-shadow: 0 4em 0 0 #4cc9f0 inset, 0em 0em 0 0 #1f5f64;
+  transform: translate(0.3em, 0.2em);
+}
+
+.treat {
+  z-index: 10;
+  --scale-x: 0;
+  --scale-y: 0;
+  pointer-events: none;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 0.5rem);
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vmin;
+  transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px))
+    translate(-50%, -50%);
+  pointer-events: none;
+  -webkit-animation: treat-enter 0.1s ease-in backwards,
+    treat-exit 300ms linear calc((var(--lifetime, 3000) * 1ms) - 300ms) forwards;
+  animation: treat-enter 0.1s ease-in backwards,
+    treat-exit 300ms linear calc((var(--lifetime, 3000) * 1ms) - 300ms) forwards;
+}
+@-webkit-keyframes treat-enter {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes treat-enter {
+  from {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes treat-exit {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes treat-exit {
+  to {
+    opacity: 0;
+  }
+}
+.treat .inner {
+  -webkit-animation: inner-rotate 0.6s linear infinite;
+  animation: inner-rotate 0.6s linear infinite;
+  transform: rotate(calc(-1turn * var(--direction)));
+}
+@-webkit-keyframes inner-rotate {
+  to {
+    transform: none;
+  }
+}
+@keyframes inner-rotate {
+  to {
+    transform: none;
+  }
+}
