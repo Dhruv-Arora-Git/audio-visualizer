@@ -31,6 +31,8 @@ body {
   background: linear-gradient(45deg, #e00876, #ef4e22);
   border-radius: 3px;
 }
+
+
 audio::-webkit-media-controls-current-time-display {
   color: #fff;
   font-size: 35px;
@@ -38,7 +40,7 @@ audio::-webkit-media-controls-current-time-display {
   padding-left: 10px;
 }
 audio::-webkit-media-controls-time-remaining-display {
-  /* color: #ef4e22; */
+
   font-weight: bolder;
   font-size: 30px;
   margin-right: 10px;
@@ -128,8 +130,8 @@ audio::-webkit-media-controls-play-button {
 
 .choose {
   position: absolute;
-  top: 15%;
-  right: 0%;
+  top: 0;
+  right: 7px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -176,8 +178,9 @@ audio::-webkit-media-controls-play-button {
   border: 0.2em solid #217fdd;
   padding: 0.8em;
   text-align: center;
+  cursor: pointer;
   transition: 0.25s box-shadow, 0.25s transform;
-  margin: 1em;
+  margin: 20px;
 }
 
 .treat-button:active {
