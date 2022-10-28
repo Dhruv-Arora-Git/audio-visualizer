@@ -349,7 +349,7 @@ function circleLayer() {
     ctx.globalCompositeOperation = "difference";
 
     for (let i = 0; i < bufferLength; i++) {
-      barHeight = dataArray[i] * 1.8;
+      barHeight = dataArray[i] * 1.6;
       ctx.save();
       ctx.translate(canvas.width / 2, canvas.height / 2);
       ctx.rotate((i * Math.PI * 4) / bufferLength);
@@ -441,7 +441,6 @@ function linesAndCircle() {
   const barWidth = 15;
   let barHeight;
   let x;
-  // console.log(bufferLength);
   function animate() {
     x = 0;
     analyser.getByteFrequencyData(dataArray);
@@ -495,7 +494,6 @@ const treatmojis = [
   "&#127926;",
   "&#10024;",
   "&#127927;",
-  "&#58130;",
   "&#129395;",
   "&#127911;",
   "&#128150;",
@@ -689,5 +687,13 @@ window.addEventListener("keydown", function (event) {
     // enter
     event.preventDefault();
     document.querySelector(".btn-1").click();
+  } else if (key == 85) {
+    // u - up
+    window.scrollTo(0, 0);
+    event.preventDefault();
+  } else if (key == 68) {
+    // d - down
+    window.scrollTo(0, document.body.scrollHeight);
+    event.preventDefault();
   }
 });
