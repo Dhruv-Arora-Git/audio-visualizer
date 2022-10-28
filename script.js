@@ -491,7 +491,20 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const treatmojis = ["🎶", "✨", "🎷", "🎉", "🥳", "🎧", "🪗", "🎸", "🎹", "🎺"];
+const treatmojis = [
+  "&#127926;",
+  "&#10024;",
+  "&#127927;",
+  "&#58130;",
+  "&#129395;",
+  "&#127911;",
+  "&#128150;",
+  "&#127928;",
+  "&#127752;",
+  "&#127878;",
+  "&#127929;",
+  "&#127930;",
+];
 const treats = [];
 const radius = 15;
 
@@ -510,7 +523,7 @@ function createTreat() /* create a treat */ {
 
   const inner = document.createElement("span");
   inner.className = "inner";
-  inner.innerText = treatmojis[getRandomInt(0, treatmojis.length - 1)];
+  inner.innerHTML = treatmojis[getRandomInt(0, treatmojis.length - 1)];
   el.appendChild(inner);
 
   elWrapper.appendChild(el);
