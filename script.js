@@ -43,7 +43,7 @@ file.addEventListener("change", function () {
   }, 100);
 
   console.log(audio1.networkState);
-  audio1.src = URL.createObjectURL(files[0]);
+  document.getElementById("src").src = URL.createObjectURL(files[0]);
   audio1.load();
   audioSource = audioCtx.createMediaElementSource(audio1);
   analyser = audioCtx.createAnalyser();
@@ -112,17 +112,14 @@ file.addEventListener("change", function () {
 });
 
 function rainbow() {
-  // rotate
-  console.log("rainbow clicked");
   analyser.fftSize = 256;
   const bufferLength = analyser.frequencyBinCount;
   const dataArray = new Uint8Array(bufferLength);
   audio1.play();
-  console.log(audio1.paused);
+
   const barWidth = 15;
   let barHeight;
   let x;
-  // console.log(bufferLength);
   function animate() {
     x = 0;
     analyser.getByteFrequencyData(dataArray);
@@ -336,7 +333,6 @@ function circleLayer() {
   const barWidth = 13;
   let barHeight;
   let x;
-  // console.log(bufferLength);
   function animate() {
     x = 0;
     analyser.getByteFrequencyData(dataArray);
@@ -655,7 +651,6 @@ window.addEventListener("resize", () => {
 });
 
 window.addEventListener("keydown", function (event) {
-  console.log(event.keyCode);
   const key = event.keyCode;
 
   if (key === 32) {
@@ -678,7 +673,6 @@ window.addEventListener("keydown", function (event) {
     // down arrow
     event.preventDefault();
     if (audio1.volume > 0) audio1.volume -= 0.1;
-    console.log(audio1.volume);
   } else if (key == 90) {
     // r - reset
     event.preventDefault();
