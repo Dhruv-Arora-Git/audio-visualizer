@@ -85,7 +85,7 @@ audio::-webkit-media-controls-play-button {
   height: 100%;
 }
 
-#audio1 {
+audio {
   width: 60%;
   display: block;
   margin: 50px auto;

@@ -1,4 +1,26 @@
 // dcoder_op - Dhruv Arora
+
+// window.addEventListener("DOMContentLoaded", function () {
+//   navigator.getUserMedia =
+//     navigator.getUserMedia ||
+//     navigator.webkitGetUserMedia ||
+//     navigator.mozGetUserMedia ||
+//     navigator.msGetUserMedia;
+//   if (navigator.getUserMedia) {
+//     navigator.getUserMedia(
+//       {
+//         video: false,
+//         audio: false,
+//       },
+//       function (stream) {},
+//       function (error) {}
+//     );
+//   } else {
+//     alert("Sorry, the browser you are using doesn't support getUserMedia");
+//     return;
+//   }
+// });
+
 const button1 = document.getElementById("button1");
 
 let elButton;
@@ -42,14 +64,21 @@ file.addEventListener("change", function () {
     }
   }, 100);
 
+  const urlObj = URL.createObjectURL(files[0]);
+  // audio1.addEventListener("load", () => {
+  //   URL.revokeObjectURL(urlObj);
+  // });
+
   console.log(audio1.networkState);
-  document.getElementById("src").src = URL.createObjectURL(files[0]);
+
+  audio1.src = urlObj;
   audio1.load();
   audioSource = audioCtx.createMediaElementSource(audio1);
   analyser = audioCtx.createAnalyser();
   audioSource.connect(analyser);
   analyser.connect(audioCtx.destination);
   console.log(audio1.networkState);
+  // audio1.play();
 
   if (audio1.networkState !== 0) {
     rainbowColors.addEventListener("click", function () {
