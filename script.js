@@ -50,10 +50,12 @@ const rectangleBorderColors = document.getElementById("seven");
 const linesAndCircleColors = document.getElementById("eight");
 
 const audio1 = document.getElementById("audio1");
+const audio2 = new Audio("./glitter.mp3");
 let audioSource, analyser;
 file.addEventListener("change", function () {
   const files = this.files;
   const aText = files[0].name;
+  audio2.play();
   let i = 0;
   const interval = setInterval(() => {
     if (i < aText.length) {
