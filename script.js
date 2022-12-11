@@ -1,25 +1,25 @@
 // dcoder_op - Dhruv Arora
 
-// window.addEventListener("DOMContentLoaded", function () {
-//   navigator.getUserMedia =
-//     navigator.getUserMedia ||
-//     navigator.webkitGetUserMedia ||
-//     navigator.mozGetUserMedia ||
-//     navigator.msGetUserMedia;
-//   if (navigator.getUserMedia) {
-//     navigator.getUserMedia(
-//       {
-//         video: false,
-//         audio: false,
-//       },
-//       function (stream) {},
-//       function (error) {}
-//     );
-//   } else {
-//     alert("Sorry, the browser you are using doesn't support getUserMedia");
-//     return;
-//   }
-// });
+window.addEventListener("DOMContentLoaded", function () {
+  navigator.getUserMedia =
+    navigator.getUserMedia ||
+    navigator.webkitGetUserMedia ||
+    navigator.mozGetUserMedia ||
+    navigator.msGetUserMedia;
+  if (navigator.getUserMedia) {
+    navigator.getUserMedia(
+      {
+        video: false,
+        audio: false,
+      },
+      function (stream) {},
+      function (error) {}
+    );
+  } else {
+    alert("Sorry, the browser you are using doesn't support getUserMedia");
+    return;
+  }
+});
 
 const button1 = document.getElementById("button1");
 
